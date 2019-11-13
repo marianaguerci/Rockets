@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0b3b15f070.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Rockets</title>
+</head>
+<body>
+    <div class="container content">
+
+            <div class="row d-flex justify-content-around">
+
+            <!--ROCKET 1-->
+                <div class="col-5 box flex-column">    
+                    <div class="row">        
+                        <div class="col-12 d-flex justify-content-center box align-items-center">
+                            <button class="btn btn-rockets" onclick="createRocket1();" id="button1">Create Rocket 1</button>
+
+                            <p class="text-center d-none rocket-info" id="rocketDisplay1"><i class="fas fa-rocket"></i><br><br><span id="rocketInfo1"></span></p>
+                        </div> <!--col-->
+                    </div><!--row-->
+
+                    <div class="row d-none" id="rocketButtons1">  
+                        <div class="col-12 d-flex align-items-start justify-content-center button-box">
+                            <button class="btn btn-controls" onclick="speedUpRocket1();">Accelerate</button>
+                            <button class="btn btn-controls mx-3" onclick="speedDownRocket1();">Brake</button>
+                            <button class="btn btn-controls" onclick="displayInfo1();">Info</button>
+                        </div> <!--col-->
+                    </div><!--row-->  
+                </div><!--col-->
+
+            <!--ROCKET 2-->
+                <div class="col-5 box flex-column">        
+                    <div class="row">        
+                        <div class="col-12 d-flex justify-content-center box align-items-center">
+                            <button class="btn btn-rockets" onclick="createRocket2();" id="button2">Create Rocket 2</button>
+    
+                            <p class="text-center d-none rocket-info" id="rocketDisplay2"><i class="fas fa-rocket"></i></i><br><br><span id="rocketInfo2"></span></p>
+                            </div> <!--col-->
+                    </div><!--row-->
+    
+                    <div class="row d-none" id="rocketButtons2">  
+                        <div class="col-12 d-flex align-items-start justify-content-center button-box">
+                            <button class="btn btn-controls" onclick="speedUpRocket2();">Accelerate</button>
+                            <button class="btn btn-controls mx-3" onclick="speedDownRocket2();">Brake</button>
+                            <button class="btn btn-controls" onclick="displayInfo2();">Info</button>
+                        </div> <!--col-->
+                    </div><!--row-->           
+                </div><!--col-->
+            </div><!--row-->
+
+        <!--BTN SHOW ALL ROCKETS-->
+            <div class="row d-none mt-5" id="showAllRockets">
+                <div class="col-12 d-flex justify-content-center align-items-start show-all-background mt-5">
+                    <button class="btn btn-controls mt-5 mr-2" onclick="displayInfoAll();" id="showAllBtn">Show All Rockets Info</button>
+                    <button class="btn btn-controls mt-5 ml-2" onclick="hideInfoAll();" id="showAllBtn">X</button>
+                </div> <!--col-->  
+            </div> <!--row-->
+
+    </div> <!--main container-->
+   
+    <script src="../models/rocket.js"></script>
+    <script src="../models/thruster.js"></script>
+    <script src="../controllers/controllers.js"></script>
+</body>
+</html>
