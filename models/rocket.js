@@ -6,7 +6,7 @@ var Rocket = /** @class */ (function () {
     }
     Rocket.prototype.addThruster = function (thrusters) {
         this.thrusters.push(thrusters);
-    };
+    }; //agrega los propulsores al array  
     Rocket.prototype.speedUp = function (thrusters) {
         for (var _i = 0, thrusters_1 = thrusters; _i < thrusters_1.length; _i++) {
             var item = thrusters_1[_i];
@@ -33,9 +33,6 @@ var Rocket = /** @class */ (function () {
     Rocket.prototype.displayInfo = function (place, object) {
         place.innerHTML = "<b>" + object.code + "</b><br>Boosters max power:<br>" + object.getPower() + ".<br><br>Speed: " + object.currentSpeed();
     }; //muestra info del cohete por pantalla
-    Rocket.prototype.hideInfo = function (place) {
-        place.innerHTML = "";
-    }; //esconde info del cohete
     Rocket.prototype.getPower = function () {
         var power;
         var powerArray = [];

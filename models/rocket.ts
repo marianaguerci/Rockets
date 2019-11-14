@@ -8,7 +8,7 @@ class Rocket {
 
     addThruster(thrusters:Thruster):void {
         this.thrusters.push(thrusters);
-    }
+    } //agrega los propulsores al array  
 
     speedUp(thrusters:Thruster[]) {
         for(var item of thrusters) {
@@ -37,10 +37,6 @@ class Rocket {
     displayInfo(place:any, object: any){
         place.innerHTML = `<b>${object.code}</b><br>Boosters max power:<br>${object.getPower()}.<br><br>Speed: ${object.currentSpeed()}`;
     } //muestra info del cohete por pantalla
-
-    hideInfo(place:any){
-        place.innerHTML = "";
-    } //esconde info del cohete
 
     getPower() {
         let power: number;

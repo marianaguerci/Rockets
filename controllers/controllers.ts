@@ -1,158 +1,95 @@
-var rocket: Rocket;
 var rockets: Rocket[] = [];
 
-function createRocket(code:string){
-    rocket = new Rocket(code);
+//Crea los cohetes 
+function createRocket(code:string) {
+    let rocket = new Rocket(code);
+
+    if (code == "32WESSDS") {
+        let thrusterList:number[] = [10,30,80];
+        createThrusters(thrusterList,rocket)
+
+    } else if (code == "LDSFJA32") {
+        let thrusterList:number[] = [30,40,50,50,30,10];
+        createThrusters(thrusterList,rocket)
+    }
+    console.log(rockets); 
     rockets.push(rocket);
-    console.log(rockets);
+    displayElements(code);
 }
 
-//ROCKET 1
-function createRocket1() {   
-    createRocket("32WESSDS");
+//crea los propulsores a cada cohete
+function createThrusters(thrusterList:number[], rocket:Rocket) {
+    for (var i=0; i<thrusterList.length; i++) {
+        let newThruster = new Thruster(thrusterList[i]);
+        rocket.addThruster(newThruster);
+        } 
+}
 
-    rocket.addThruster(new Thruster(10));
-    rocket.addThruster(new Thruster(30));
-    rocket.addThruster(new Thruster(80));
-
-    let button = document.getElementById("button1");
-    let rocketDisplay = document.getElementById("rocketDisplay1");
-    let rocketButtons = document.getElementById("rocketButtons1");
+//muestra por pantalla cada cohete, una vez creado, y los controles
+function displayElements(code:string) {
+    for (var i=0; i<rockets.length; i++) {
+        if (rockets[i].code == code) {
+            let button:any = document.getElementById("button"+code);
+            let rocketDisplay:any = document.getElementById("rocketDisplay"+code);
+            let rocketButtons:any = document.getElementById("rocketButtons"+code);
+        
+            button.classList.add("d-none");
+            rocketDisplay.classList.remove("d-none");
+            rocketButtons.classList.remove("d-none");
+        }
+    }
+        
     let showAllRockets:any = document.getElementById("showAllRockets");
-
-    displayElements(button, rocketDisplay, rocketButtons);
-
     if(rockets.length > 1) {
         showAllRockets.classList.remove("d-none");
     }
 }
 
-//ROCKET 2
-function createRocket2() {
-    createRocket("LDSFJA32");
-
-    rocket.addThruster(new Thruster(30));
-    rocket.addThruster(new Thruster(40));
-    rocket.addThruster(new Thruster(50));
-    rocket.addThruster(new Thruster(50));
-    rocket.addThruster(new Thruster(30));
-    rocket.addThruster(new Thruster(10));
-
-    let button = document.getElementById("button2");
-    let rocketDisplay = document.getElementById("rocketDisplay2");
-    let rocketButtons = document.getElementById("rocketButtons2");
-    let showAllRockets:any = document.getElementById("showAllRockets");
-
-    displayElements(button, rocketDisplay, rocketButtons);
-
-    if(rockets.length > 1) {
-        showAllRockets.classList.remove("d-none");
-    }
-}
-
-//muestra por pantalla cada cohete creado y los controles
-function displayElements(hideElement: any, showElement: any, showControls: any) {
-    hideElement.classList.add("d-none");
-    showElement.classList.remove("d-none");
-    showControls.classList.remove("d-none");
-}
-  
-// muestra la info del cohete 1
-function displayInfo1() {
-    let rocketInfo1: any = document.getElementById("rocketInfo1");
-
-    for (var i=0; i<rockets.length; i++){
-        if(rockets[i].code == "32WESSDS") {
-            console.log(rockets[i].code);
-            rocket.displayInfo(rocketInfo1, rockets[i]);
+// muestra la info de cada cohete
+function displayRocketInfo(code:string) {
+    for (var i=0; i<rockets.length; i++) {
+        if (rockets[i].code == code){
+            let rocketInfo: any = document.getElementById("rocketInfo"+code);
+            rockets[i].displayInfo(rocketInfo, rockets[i]);
         }
-    }
-}
-
-// muestra la info del cohete 2
-function displayInfo2() {
-    let rocketInfo2: any = document.getElementById("rocketInfo2");
-
-    for (var i=0; i<rockets.length; i++){
-        if(rockets[i].code == "LDSFJA32") {
-            console.log(rockets[i].code);
-            rocket.displayInfo(rocketInfo2, rockets[i]);
-        }
-    }
+    }  
 }
 
 //muestra la info de todos los cohetes
 function displayInfoAll() {
-    let rocketInfo: any;
-    for(var i=0; i<rockets.length; i++) {
-        rocketInfo = document.getElementById("rocketInfo"+(i+1));
-        rockets[i].displayInfo(rocketInfo, rockets[i]);
+    for(var i=0; i<rockets.length; i++) {    
+        displayRocketInfo(rockets[i].code);
     }
 }
 
 //esconde la info de todos los cohetes
 function hideInfoAll() {
-    let rocketInfo: any;
     for(var i=0; i<rockets.length; i++) {
-        rocketInfo = document.getElementById("rocketInfo"+(i+1));
-        rockets[i].hideInfo(rocketInfo);
+        let code = rockets[i].code;
+        let rocketInfo:any = document.getElementById("rocketInfo"+code);
+        rocketInfo.innerHTML = "";
     }
 }
 
-//acelera cohete 1
-function speedUpRocket1() {
-    
-    let speedInfo: any = document.getElementById("rocketInfo1");
+//ACELERA cada cohete
+function speedUpRocket(code: string) {
 
-    for(var item of rockets){
-
-        if (item.code == "32WESSDS") {
-            item.speedUp(item.thrusters);
-            item.displayInfo(speedInfo, item);
-        }     
-    }      
+    for(var i=0; i<rockets.length; i++) {
+        if (rockets[i].code == code) {
+            let speedInfo: any = document.getElementById("rocketInfo"+code);
+            rockets[i].speedUp(rockets[i].thrusters);
+            rockets[i].displayInfo(speedInfo,rockets[i]);
+        }
+    }   
 }
 
-//acelera cohete 2
-function speedUpRocket2() {
-    let speedInfo: any = document.getElementById("rocketInfo2");
-
-    for(var item of rockets){
-
-        if (item.code == "LDSFJA32") {
-            item.speedUp(item.thrusters);
-            item.displayInfo(speedInfo, item);
-        }     
-    }      
-}
-
-//frena cohete 1
-function speedDownRocket1() {
-    let speedInfo: any = document.getElementById("rocketInfo1");
-
-    for(var item of rockets){
-
-        if (item.code == "32WESSDS") {
-            item.speedDown(item.thrusters);
-            item.displayInfo(speedInfo, item);
-        }     
+//FRENA cada cohete
+function speedDownRocket(code: string) {
+    for(var i=0; i<rockets.length; i++) {
+        if (rockets[i].code == code) {
+            let speedInfo: any = document.getElementById("rocketInfo"+code);
+            rockets[i].speedDown(rockets[i].thrusters);
+            rockets[i].displayInfo(speedInfo,rockets[i]);
+        }
     } 
 }
-
-//frena cohete 2
-function speedDownRocket2() {
-    let speedInfo: any = document.getElementById("rocketInfo2");
-
-    for(var item of rockets){
-
-        if (item.code == "LDSFJA32") {
-            item.speedDown(item.thrusters);
-            item.displayInfo(speedInfo, item);
-        }     
-    } 
-}
-
-
-
-
-   
