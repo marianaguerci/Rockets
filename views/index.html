@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0b3b15f070.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Rockets</title>
+</head>
+
+<body>
+
+    <div class="container m-5">
+        <div class="row">
+            <div class="col-sm-6 mb-4">
+                <!--El card entero aparece cuando creo rocket-->
+                <div class="card">
+                    <img src="https://cdn.dribbble.com/users/9953/screenshots/1993412/rocket.jpg" class="card-img-top" alt="rocket">
+                    <h4 class="card-title card-header text-center">Rocket to Russia</h4>
+                    <div class="card-body text-center">
+                        <div>
+                            <p class="d-inline card-text mr-2"><small>Speed Up</small></p>
+                            <button class="btn btn-primary mx-1"><i class="fas fa-angle-up"></i></button>
+                            <button class="btn btn-primary mx-1"><i class="fas fa-angle-down"></i></button>
+                            <p class="card-text d-inline ml-2"><small>Speed Down</small></p>
+                        </div>
+                    </div>
+                    <!--INFO BTN-->
+                    <div class="card-text text-center my-3">
+                        <button class="btn btn-outline-info" style="width: 90%;">More Info</button>
+                    </div>
+                    <!--FOOTER-->
+                    <!--mostrar al clickear "more info"-->
+                    <div class="card-footer" id="rocketInfo32WESSDS">
+                        <h5 class="card-title mb-4">Rocket #<span></span></h5>
+                        <div>
+                            <p class="card-text">Boosters max power: <span>10, 30, 80
+                            </span></p>
+                        </div>
+
+                        <p class="card-text">Speed: <span>10</span></p>
+                        <div class="d-inline card-text">
+                            <!--caja de speed lines-->
+                            <i class="fas fa-square"></i>
+                            <i class="fas fa-square"></i>
+                            <i class="fas fa-square"></i>
+                            <i class="fas fa-square"></i>
+                            <i class="fas fa-square"></i>
+                            <i class="fas fa-square"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6  mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../models/rocket.js"></script>
+    <script src="../models/thruster.js"></script>
+    <script src="../controllers/controllers.js"></script>
+</body>
+
+</html>
