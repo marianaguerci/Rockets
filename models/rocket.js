@@ -6,7 +6,7 @@ var Rocket = /** @class */ (function () {
     }
     Rocket.prototype.addThruster = function (thrusters) {
         this.thrusters.push(thrusters);
-    }; //agrega los propulsores al array  
+    }; // add thrusters to array
     Rocket.prototype.speedUp = function (thrusters, code) {
         for (var _i = 0, thrusters_1 = thrusters; _i < thrusters_1.length; _i++) {
             var item = thrusters_1[_i];
@@ -18,7 +18,7 @@ var Rocket = /** @class */ (function () {
                 speedLines.appendChild(line).classList.add("d-inline"); // add speed lines to graphic
             }
         }
-    }; // aumenta la velocidad de 10 en 10 hasta su máximo
+    }; // speeds up from 10 to 10 to its max power
     Rocket.prototype.speedDown = function (thrusters, code) {
         for (var _i = 0, thrusters_2 = thrusters; _i < thrusters_2.length; _i++) {
             var item = thrusters_2[_i];
@@ -28,18 +28,18 @@ var Rocket = /** @class */ (function () {
                 speedLines.removeChild(speedLines.lastChild); // remove speed lines from graphic
             }
         }
-    }; //reduce la velocidad de 10 en 10 hasta el mínimo = 0
+    }; // speeds down from 10 to 10 to its min power = 0
     Rocket.prototype.currentSpeed = function () {
         var total = 0;
         for (var i = 0; i < this.thrusters.length; i++) {
             total = total + this.thrusters[i].currentPower;
         }
         return total;
-    }; //velocidad actual, es la suma de todas las potencias actuales de sus propulsores  
+    }; // current speed, is the sum of all the current powers of its thrusters
     /* OLD UI METHOD
         displayInfo(place:any, object: any){
             place.innerHTML = `<b>${object.code}</b><br>Boosters max power:<br>${object.getPower()}.<br><br>Speed: ${object.currentSpeed()}`;
-        } //muestra info del cohete por pantalla
+        } // shows rocket info
     
     */
     //NEW UI METHOD
@@ -47,7 +47,7 @@ var Rocket = /** @class */ (function () {
         code.innerHTML = "" + object.code;
         boosters.innerHTML = "" + object.getPower();
         speed.innerHTML = "" + object.currentSpeed();
-    };
+    }; // shows rocket info (speed, thruster power and rocket name/code)
     Rocket.prototype.getPower = function () {
         var power;
         var powerArray = [];
@@ -56,6 +56,6 @@ var Rocket = /** @class */ (function () {
             powerArray.push(power);
         }
         return powerArray.join(", ");
-    }; //retorna la potencia de cada uno de los propulsores para mostrar en displayInfo
+    }; // returns each thruster power (to display on screen at displayInfo())
     return Rocket;
 }());

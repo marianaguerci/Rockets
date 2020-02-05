@@ -8,7 +8,7 @@ class Rocket {
 
     addThruster(thrusters:Thruster):void {
         this.thrusters.push(thrusters);
-    } //agrega los propulsores al array  
+    } // add thrusters to array
 
     speedUp(thrusters:Thruster[], code: string) {
         for(var item of thrusters) {
@@ -24,7 +24,7 @@ class Rocket {
 
             }
         }
-    } // aumenta la velocidad de 10 en 10 hasta su máximo
+    } // speeds up from 10 to 10 to its max power
     
     speedDown(thrusters:Thruster[], code: string)  {
         for(var item of thrusters) {
@@ -35,7 +35,7 @@ class Rocket {
                 speedLines.removeChild(speedLines.lastChild); // remove speed lines from graphic
             }
         }
-    } //reduce la velocidad de 10 en 10 hasta el mínimo = 0
+    } // speeds down from 10 to 10 to its min power = 0
 
     currentSpeed()  {
         var total:number = 0;
@@ -43,12 +43,12 @@ class Rocket {
             total = total + this.thrusters[i].currentPower;  
         }
         return total;
-    } //velocidad actual, es la suma de todas las potencias actuales de sus propulsores  
+    }  // current speed, is the sum of all the current powers of its thrusters
 
 /* OLD UI METHOD
     displayInfo(place:any, object: any){
         place.innerHTML = `<b>${object.code}</b><br>Boosters max power:<br>${object.getPower()}.<br><br>Speed: ${object.currentSpeed()}`;
-    } //muestra info del cohete por pantalla
+    } // shows rocket info
 
 */
 
@@ -57,7 +57,7 @@ class Rocket {
         code.innerHTML = `${object.code}`;
         boosters.innerHTML = `${object.getPower()}`;
         speed.innerHTML = `${object.currentSpeed()}`;
-    }
+    } // shows rocket info (speed, thruster power and rocket name/code)
 
     getPower() {
         let power: number;
@@ -69,5 +69,5 @@ class Rocket {
             powerArray.push(power);
         }
         return powerArray.join(", ");
-    } //retorna la potencia de cada uno de los propulsores para mostrar en displayInfo
+    } // returns each thruster power (to display on screen at displayInfo())
 }
