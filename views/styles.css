@@ -8,9 +8,60 @@ html {
     box-sizing: inherit;
 }
 
-body {
-    color: #002733;
+
+/* STYLES */
+
+.create-button {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
 }
+
+.info-button {
+    width: 90%;
+}
+
+.fa-angle-up,
+.fa-angle-down {
+    font-size: 16px;
+    color: white;
+}
+
+.fa-square {
+    font-size: 16px;
+    color: #1E8999;
+}
+
+.close-button>.fa-times {
+    font-size: 16px;
+    color: white;
+}
+
+.close-info-button>.fa-times {
+    font-size: 16px;
+    color: rgba(143, 131, 131);
+}
+
+.close-button {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    z-index: 1;
+    width: 30px;
+    background: none;
+    border-color: rgb(233, 119, 104);
+}
+
+.close-button:focus {
+    outline-color: #FFA093;
+}
+
+.speed-box {
+    width: 80%;
+}
+
+
+/*  rockets.html styles (OLD UI)
 
 .content {
     margin: 60px auto;
@@ -57,18 +108,4 @@ body {
 i {
     font-size: 120px;
     color: #C44F21;
-}
-
-
-/* ADDITIONAL STYLING  index */
-
-.fa-angle-up,
-.fa-angle-down {
-    font-size: 16px;
-    color: white;
-}
-
-.fa-square {
-    font-size: 16px;
-    color: #12697C;
-}
+} */

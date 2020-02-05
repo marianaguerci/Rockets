@@ -7,19 +7,25 @@ var Rocket = /** @class */ (function () {
     Rocket.prototype.addThruster = function (thrusters) {
         this.thrusters.push(thrusters);
     }; //agrega los propulsores al array  
-    Rocket.prototype.speedUp = function (thrusters) {
+    Rocket.prototype.speedUp = function (thrusters, code) {
         for (var _i = 0, thrusters_1 = thrusters; _i < thrusters_1.length; _i++) {
             var item = thrusters_1[_i];
             if (item.currentPower < item.maxPower) {
                 item.currentPower += 10;
+                var speedLines = document.getElementById("speedLines" + code);
+                var line = document.createElement('div');
+                line.innerHTML = "\n            <i class=\"fas fa-square\"></i>\n            ";
+                speedLines.appendChild(line).classList.add("d-inline"); // add speed lines to graphic
             }
         }
     }; // aumenta la velocidad de 10 en 10 hasta su máximo
-    Rocket.prototype.speedDown = function (thrusters) {
+    Rocket.prototype.speedDown = function (thrusters, code) {
         for (var _i = 0, thrusters_2 = thrusters; _i < thrusters_2.length; _i++) {
             var item = thrusters_2[_i];
             if (item.currentPower > 0) {
                 item.currentPower -= 10;
+                var speedLines = document.getElementById("speedLines" + code);
+                speedLines.removeChild(speedLines.lastChild); // remove speed lines from graphic
             }
         }
     }; //reduce la velocidad de 10 en 10 hasta el mínimo = 0
@@ -30,9 +36,18 @@ var Rocket = /** @class */ (function () {
         }
         return total;
     }; //velocidad actual, es la suma de todas las potencias actuales de sus propulsores  
-    Rocket.prototype.displayInfo = function (place, object) {
-        place.innerHTML = "<b>" + object.code + "</b><br>Boosters max power:<br>" + object.getPower() + ".<br><br>Speed: " + object.currentSpeed();
-    }; //muestra info del cohete por pantalla
+    /* OLD UI METHOD
+        displayInfo(place:any, object: any){
+            place.innerHTML = `<b>${object.code}</b><br>Boosters max power:<br>${object.getPower()}.<br><br>Speed: ${object.currentSpeed()}`;
+        } //muestra info del cohete por pantalla
+    
+    */
+    //NEW UI METHOD
+    Rocket.prototype.displayInfo = function (object, code, boosters, speed) {
+        code.innerHTML = "" + object.code;
+        boosters.innerHTML = "" + object.getPower();
+        speed.innerHTML = "" + object.currentSpeed();
+    };
     Rocket.prototype.getPower = function () {
         var power;
         var powerArray = [];

@@ -1,6 +1,6 @@
 "use strict";
 var rockets = [];
-//Crea los cohetes 
+// creates Rocket instances
 function createRocket(code) {
     var rocket = new Rocket(code);
     if (code == "32WESSDS") {
@@ -15,70 +15,83 @@ function createRocket(code) {
     rockets.push(rocket);
     displayElements(code);
 }
-//crea los propulsores a cada cohete
+// creates thrusters for each rocket
 function createThrusters(thrusterList, rocket) {
     for (var i = 0; i < thrusterList.length; i++) {
         var newThruster = new Thruster(thrusterList[i]);
         rocket.addThruster(newThruster);
     }
 }
-//muestra por pantalla cada cohete, una vez creado, y los controles
+// shows each rocket and their speed controllers, once created
 function displayElements(code) {
     for (var i = 0; i < rockets.length; i++) {
         if (rockets[i].code == code) {
             var button = document.getElementById("button" + code);
             var rocketDisplay = document.getElementById("rocketDisplay" + code);
-            var rocketButtons = document.getElementById("rocketButtons" + code);
             button.classList.add("d-none");
             rocketDisplay.classList.remove("d-none");
-            rocketButtons.classList.remove("d-none");
         }
     }
-    var showAllRockets = document.getElementById("showAllRockets");
-    if (rockets.length > 1) {
-        showAllRockets.classList.remove("d-none");
-    }
+    /*
+   let showAllRockets:any = document.getElementById("showAllRockets");
+   if(rockets.length > 1) {
+       showAllRockets.classList.remove("d-none");
+   } */
 }
-// muestra la info de cada cohete
+// shows each rocket speed and thrusters info when 'show speed' button is clicked
 function displayRocketInfo(code) {
     for (var i = 0; i < rockets.length; i++) {
         if (rockets[i].code == code) {
-            var rocketInfo = document.getElementById("rocketInfo" + code);
-            rockets[i].displayInfo(rocketInfo, rockets[i]);
+            var rocketInfo = document.getElementById("footer" + code);
+            rocketInfo.classList.remove("d-none");
+            var button = document.getElementById("speedButton" + code);
+            button.classList.add("d-none");
+            var rocketCode = document.getElementById("rocketCode" + code);
+            var rocketBoosters = document.getElementById("rocketBoosters" + code);
+            var rocketSpeed = document.getElementById("rocketSpeed" + code);
+            rockets[i].displayInfo(rockets[i], rocketCode, rocketBoosters, rocketSpeed);
         }
     }
 }
-//muestra la info de todos los cohetes
+/*  OLD UI METHODS
+
+//shows all rockets info
 function displayInfoAll() {
-    for (var i = 0; i < rockets.length; i++) {
+    for(var i=0; i<rockets.length; i++) {
         displayRocketInfo(rockets[i].code);
     }
 }
-//esconde la info de todos los cohetes
+
+//hides all rockets info
 function hideInfoAll() {
-    for (var i = 0; i < rockets.length; i++) {
-        var code = rockets[i].code;
-        var rocketInfo = document.getElementById("rocketInfo" + code);
+    for(var i=0; i<rockets.length; i++) {
+        let code = rockets[i].code;
+        let rocketInfo:any = document.getElementById("rocketInfo"+code);
         rocketInfo.innerHTML = "";
     }
 }
-//ACELERA cada cohete
+*/
+// ACCELERATES each rocket
 function speedUpRocket(code) {
     for (var i = 0; i < rockets.length; i++) {
         if (rockets[i].code == code) {
-            var speedInfo = document.getElementById("rocketInfo" + code);
-            rockets[i].speedUp(rockets[i].thrusters);
-            rockets[i].displayInfo(speedInfo, rockets[i]);
+            var rocketCode = document.getElementById("rocketCode" + code);
+            var rocketBoosters = document.getElementById("rocketBoosters" + code);
+            var rocketSpeed = document.getElementById("rocketSpeed" + code);
+            rockets[i].speedUp(rockets[i].thrusters, code);
+            rockets[i].displayInfo(rockets[i], rocketCode, rocketBoosters, rocketSpeed);
         }
     }
 }
-//FRENA cada cohete
+// BRAKES each rocket
 function speedDownRocket(code) {
     for (var i = 0; i < rockets.length; i++) {
         if (rockets[i].code == code) {
-            var speedInfo = document.getElementById("rocketInfo" + code);
-            rockets[i].speedDown(rockets[i].thrusters);
-            rockets[i].displayInfo(speedInfo, rockets[i]);
+            var rocketCode = document.getElementById("rocketCode" + code);
+            var rocketBoosters = document.getElementById("rocketBoosters" + code);
+            var rocketSpeed = document.getElementById("rocketSpeed" + code);
+            rockets[i].speedDown(rockets[i].thrusters, code);
+            rockets[i].displayInfo(rockets[i], rocketCode, rocketBoosters, rocketSpeed);
         }
     }
 }
