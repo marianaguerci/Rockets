@@ -20,13 +20,16 @@
                 <!--create ROCKET 1 button-->
                 <div class="card-body text-center">
                     <button class="btn btn-warning create-button" onclick="createRocket('32WESSDS');" id="button32WESSDS">Go to the Moon</button>
+                    <button id="deletedMessage32WESSDS" class="deleted-message btn d-none">Trip Cancelled</button>
                 </div>
 
                 <!--Card appears when rocket is created-->
                 <div class="card d-none" id="rocketDisplay32WESSDS">
                     <img src="https://cdn.dribbble.com/users/9953/screenshots/1993412/rocket.jpg" class="card-img-top" alt="rocket">
-                    <button class="close-button rounded"><i class="fas fa-times"></i></button>
-                    <!-- falta lógica de X close -->
+
+                    <!-- CLOSE / DELETE button -->
+                    <button class="close-button rounded" onclick="deleteRocket('32WESSDS')"><i class="fas fa-times"></i></button>
+
                     <h4 class="card-title card-header text-center">Rocket to the Moon</h4>
                     <div class="card-body text-center">
                         <div>
@@ -66,12 +69,14 @@
                 <!--create ROCKET 2 button-->
                 <div class="card-body text-center">
                     <button class="btn btn-warning create-button" onclick="createRocket('LDSFJA32');" id="buttonLDSFJA32">Go to Mars</button>
+                    <button id="deletedMessageLDSFJA32" class="deleted-message btn d-none">Trip Cancelled</button>
                 </div>
                 <!--Card appears when rocket is created-->
                 <div class="card d-none" id="rocketDisplayLDSFJA32">
                     <img src="https://cdn.dribbble.com/users/9953/screenshots/1993412/rocket.jpg" class="card-img-top" alt="rocket">
-                    <button class="close-button rounded"><i class="fas fa-times"></i></button>
-                    <!-- falta lógica de X close -->
+
+                    <!-- CLOSE / DELETE Button -->
+                    <button class="close-button rounded" onclick="deleteRocket('LDSFJA32')"><i class="fas fa-times"></i></button>
                     <h4 class="card-title card-header text-center">Rocket to Mars</h4>
                     <div class="card-body text-center">
                         <div>

@@ -17,6 +17,14 @@ html {
     height: 200px;
 }
 
+.deleted-message {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: #DC402A;
+    color: white;
+}
+
 .info-button {
     width: 90%;
 }

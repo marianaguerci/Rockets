@@ -62,25 +62,6 @@ function displayRocketInfo(code:string) {
     }  
 }
 
-/*  OLD UI METHODS
-
-//shows all rockets info
-function displayInfoAll() {
-    for(var i=0; i<rockets.length; i++) {    
-        displayRocketInfo(rockets[i].code);
-    }
-}
-
-//hides all rockets info
-function hideInfoAll() {
-    for(var i=0; i<rockets.length; i++) {
-        let code = rockets[i].code;
-        let rocketInfo:any = document.getElementById("rocketInfo"+code);
-        rocketInfo.innerHTML = "";
-    }
-}
-*/
-
 // ACCELERATES each rocket
 function speedUpRocket(code: string) {
 
@@ -109,3 +90,48 @@ function speedDownRocket(code: string) {
         }
     } 
 }
+
+// DELETES instance of Rocket when 'X' is clicked
+function deleteRocket(code: string) {
+
+    for(let i=0; i<rockets.length; i++) {
+        if (rockets[i].code == code) {
+            let rocketCard: any = document.getElementById("rocketDisplay"+code);
+            rocketCard.classList.add("d-none");
+
+            //delete rocket instance
+            rockets.splice(i, 1);
+            console.log(rockets);
+
+            // deleted message
+            let message: any = document.getElementById("deletedMessage"+code);
+            message.classList.remove('d-none');
+            let createButton: any = document.getElementById("button"+code);
+            setTimeout(function() {
+                message.classList.add('d-none'); // delete message
+                createButton.classList.remove("d-none"); // show creation button again
+            }, 1500);
+
+        } 
+    }
+}
+
+
+/*  OLD UI METHODS
+
+//shows all rockets info
+function displayInfoAll() {
+    for(var i=0; i<rockets.length; i++) {    
+        displayRocketInfo(rockets[i].code);
+    }
+}
+
+//hides all rockets info
+function hideInfoAll() {
+    for(var i=0; i<rockets.length; i++) {
+        let code = rockets[i].code;
+        let rocketInfo:any = document.getElementById("rocketInfo"+code);
+        rocketInfo.innerHTML = "";
+    }
+}
+*/

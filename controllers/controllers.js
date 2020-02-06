@@ -53,24 +53,6 @@ function displayRocketInfo(code) {
         }
     }
 }
-/*  OLD UI METHODS
-
-//shows all rockets info
-function displayInfoAll() {
-    for(var i=0; i<rockets.length; i++) {
-        displayRocketInfo(rockets[i].code);
-    }
-}
-
-//hides all rockets info
-function hideInfoAll() {
-    for(var i=0; i<rockets.length; i++) {
-        let code = rockets[i].code;
-        let rocketInfo:any = document.getElementById("rocketInfo"+code);
-        rocketInfo.innerHTML = "";
-    }
-}
-*/
 // ACCELERATES each rocket
 function speedUpRocket(code) {
     for (var i = 0; i < rockets.length; i++) {
@@ -95,3 +77,44 @@ function speedDownRocket(code) {
         }
     }
 }
+// DELETES instance of Rocket when 'X' is clicked
+function deleteRocket(code) {
+    var _loop_1 = function (i) {
+        if (rockets[i].code == code) {
+            var rocketCard = document.getElementById("rocketDisplay" + code);
+            rocketCard.classList.add("d-none");
+            //delete rocket instance
+            rockets.splice(i, 1);
+            console.log(rockets);
+            // deleted message
+            var message_1 = document.getElementById("deletedMessage" + code);
+            message_1.classList.remove('d-none');
+            var createButton_1 = document.getElementById("button" + code);
+            setTimeout(function () {
+                message_1.classList.add('d-none'); // delete message
+                createButton_1.classList.remove("d-none"); // show creation button again
+            }, 1500);
+        }
+    };
+    for (var i = 0; i < rockets.length; i++) {
+        _loop_1(i);
+    }
+}
+/*  OLD UI METHODS
+
+//shows all rockets info
+function displayInfoAll() {
+    for(var i=0; i<rockets.length; i++) {
+        displayRocketInfo(rockets[i].code);
+    }
+}
+
+//hides all rockets info
+function hideInfoAll() {
+    for(var i=0; i<rockets.length; i++) {
+        let code = rockets[i].code;
+        let rocketInfo:any = document.getElementById("rocketInfo"+code);
+        rocketInfo.innerHTML = "";
+    }
+}
+*/ 
