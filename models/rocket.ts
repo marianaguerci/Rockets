@@ -13,15 +13,14 @@ class Rocket {
     speedUp(thrusters:Thruster[], code: string) {
         for(var item of thrusters) {
             if (item.currentPower < item.maxPower) {
-            item.currentPower += 10;
-            
-            let speedLines: any = document.getElementById("speedLines"+code);
-            const line: any = document.createElement('div');
-            line.innerHTML = `
-            <i class="fas fa-square"></i>
-            `
-            speedLines.appendChild(line).classList.add("d-inline");  // add speed lines to graphic
-
+                item.currentPower += 10;
+                
+                let speedLines: any = document.getElementById("speedLines"+code);
+                const line: any = document.createElement('div');
+                line.innerHTML = `
+                <i class="fas fa-square"></i>
+                `
+                speedLines.appendChild(line).classList.add("d-inline");  // add speed lines to graphic     
             }
         }
     } // speeds up from 10 to 10 to its max power
@@ -57,7 +56,7 @@ class Rocket {
         code.innerHTML = `${object.code}`;
         boosters.innerHTML = `${object.getPower()}`;
         speed.innerHTML = `${object.currentSpeed()}`;
-    } // shows rocket info (speed, thruster power and rocket name/code)
+    } // shows rocket info (rocket name/code, thruster power and current speed)
 
     getPower() {
         let power: number;
@@ -70,4 +69,5 @@ class Rocket {
         }
         return powerArray.join(", ");
     } // returns each thruster power (to display on screen at displayInfo())
+
 }

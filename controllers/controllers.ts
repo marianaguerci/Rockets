@@ -57,7 +57,7 @@ function displayRocketInfo(code:string) {
             let rocketBoosters: any = document.getElementById("rocketBoosters"+code);
             let rocketSpeed: any = document.getElementById("rocketSpeed"+code);
 
-           rockets[i].displayInfo(rockets[i], rocketCode, rocketBoosters, rocketSpeed);
+            rockets[i].displayInfo(rockets[i], rocketCode, rocketBoosters, rocketSpeed);
         }
     }  
 }
@@ -96,8 +96,12 @@ function deleteRocket(code: string) {
 
     for(let i=0; i<rockets.length; i++) {
         if (rockets[i].code == code) {
+        
             let rocketCard: any = document.getElementById("rocketDisplay"+code);
             rocketCard.classList.add("d-none");
+
+            let speedLinesBox: any = document.getElementById("speedLines"+code);
+            speedLinesBox.innerHTML = "";  // delete speedlines
 
             //delete rocket instance
             rockets.splice(i, 1);
@@ -111,7 +115,11 @@ function deleteRocket(code: string) {
                 message.classList.add('d-none'); // delete message
                 createButton.classList.remove("d-none"); // show creation button again
             }, 1500);
-
+            
+            let rocketInfo: any = document.getElementById("footer"+code);
+            rocketInfo.classList.add("d-none");
+            let button: any = document.getElementById("speedButton"+code);
+            button.classList.remove("d-none");
         } 
     }
 }

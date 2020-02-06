@@ -14,8 +14,8 @@ var Rocket = /** @class */ (function () {
                 item.currentPower += 10;
                 var speedLines = document.getElementById("speedLines" + code);
                 var line = document.createElement('div');
-                line.innerHTML = "\n            <i class=\"fas fa-square\"></i>\n            ";
-                speedLines.appendChild(line).classList.add("d-inline"); // add speed lines to graphic
+                line.innerHTML = "\n                <i class=\"fas fa-square\"></i>\n                ";
+                speedLines.appendChild(line).classList.add("d-inline"); // add speed lines to graphic     
             }
         }
     }; // speeds up from 10 to 10 to its max power
@@ -47,7 +47,7 @@ var Rocket = /** @class */ (function () {
         code.innerHTML = "" + object.code;
         boosters.innerHTML = "" + object.getPower();
         speed.innerHTML = "" + object.currentSpeed();
-    }; // shows rocket info (speed, thruster power and rocket name/code)
+    }; // shows rocket info (rocket name/code, thruster power and current speed)
     Rocket.prototype.getPower = function () {
         var power;
         var powerArray = [];
