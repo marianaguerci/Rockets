@@ -101,7 +101,10 @@ function deleteRocket(code: string) {
             rocketCard.classList.add("d-none");
 
             let speedLinesBox: any = document.getElementById("speedLines"+code);
-            speedLinesBox.innerHTML = "";  // delete speedlines
+            //speedLinesBox.innerHTML = "";  // delete speedlines
+            while(speedLinesBox.firstChild) {
+                speedLinesBox.removeChild(speedLinesBox.firstChild);
+            }
 
             //delete rocket instance
             rockets.splice(i, 1);
@@ -114,7 +117,7 @@ function deleteRocket(code: string) {
             setTimeout(function() {
                 message.classList.add('d-none'); // delete message
                 createButton.classList.remove("d-none"); // show creation button again
-            }, 1500);
+            }, 1200);
             
             let rocketInfo: any = document.getElementById("footer"+code);
             rocketInfo.classList.add("d-none");

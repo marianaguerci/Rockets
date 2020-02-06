@@ -9,6 +9,36 @@ html {
 }
 
 
+/* ANIMATION */
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+.fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+
 /* STYLES */
 
 .create-button {
@@ -67,53 +97,3 @@ html {
 .speed-box {
     width: 80%;
 }
-
-
-/*  rockets.html styles (OLD UI)
-
-.content {
-    margin: 60px auto;
-}
-
-.box {
-    background-color: #CCDAD1;
-    height: 400px;
-}
-
-.rocket-info {
-    padding-top: 10vh;
-}
-
-.btn-rockets {
-    background-color: #004E64;
-    color: #EEF5DB;
-    height: 20vw;
-    width: 20vw;
-    border-radius: 50%;
-}
-
-.btn-rockets:hover {
-    background-color: #12697C;
-    color: #EEF5DB;
-}
-
-.button-box {
-    height: 10vh;
-    width: 20vw;
-    background-color: #CCDAD1;
-}
-
-.btn-controls {
-    background-color: #004E64;
-    color: #EEF5DB;
-}
-
-.btn-controls:hover {
-    background-color: #12697C;
-    color: #EEF5DB;
-}
-
-i {
-    font-size: 120px;
-    color: #C44F21;
-} */

@@ -84,7 +84,10 @@ function deleteRocket(code) {
             var rocketCard = document.getElementById("rocketDisplay" + code);
             rocketCard.classList.add("d-none");
             var speedLinesBox = document.getElementById("speedLines" + code);
-            speedLinesBox.innerHTML = ""; // delete speedlines
+            //speedLinesBox.innerHTML = "";  // delete speedlines
+            while (speedLinesBox.firstChild) {
+                speedLinesBox.removeChild(speedLinesBox.firstChild);
+            }
             //delete rocket instance
             rockets.splice(i, 1);
             console.log(rockets);
@@ -95,7 +98,7 @@ function deleteRocket(code) {
             setTimeout(function () {
                 message_1.classList.add('d-none'); // delete message
                 createButton_1.classList.remove("d-none"); // show creation button again
-            }, 1500);
+            }, 1200);
             var rocketInfo = document.getElementById("footer" + code);
             rocketInfo.classList.add("d-none");
             var button = document.getElementById("speedButton" + code);
